@@ -12,7 +12,8 @@ import CoreLocation
 
 
 var searchKey = ""
-let GOOGLE_API_KEY = "AIzaSyBSQ11p5somUrlvz7qEtHfS2ulA8Le6xPA"
+//let GOOGLE_API_KEY = "AIzaSyBSQ11p5somUrlvz7qEtHfS2ulA8Le6xPA"
+let GOOGLE_API_KEY = "AIzaSyCztBoPH_Aj2385l_dr5z23e0_XXZp-jgA"
 let delta = 0.02
 
 var latitude = "38.9222"
@@ -49,6 +50,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         
         
         SearchText.becomeFirstResponder() //make the keyboard appear
+        
     }
     
     
@@ -129,6 +131,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: baseURL)!)
+        print(baseURL)
         let task = session.dataTaskWithRequest(request){
             (data, response, error)-> Void in
             if error != nil {
@@ -141,10 +144,12 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
                 
                 
-                
+                print(1)
                 if let items = json["results"] as? [[String: AnyObject]]{
                     
                     var all_items:[CustomAnnotation] = [] //array to hold all items to be updated to UI later
+                    print(items)
+                    
                     for items in items{
                         //process items here
                         print (items)
@@ -173,6 +178,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
                             
                             
                             let a = CustomAnnotation(coordinate: coordinate, title: name, subtitle: vicinity, placeId: placeID as! String)
+                    
                             all_items.append(a)
                             
                             
@@ -203,6 +209,7 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         
         task.resume()
     }
+    
     
     
     
