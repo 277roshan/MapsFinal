@@ -18,6 +18,16 @@
 		74D4BFCA1C765A7B00AAC8EA /* MapPracticeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D4BFC91C765A7B00AAC8EA /* MapPracticeTests.swift */; };
 		74D4BFD51C765A7B00AAC8EA /* MapPracticeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74D4BFD41C765A7B00AAC8EA /* MapPracticeUITests.swift */; };
 		74D4BFE31C765B1200AAC8EA /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74D4BFE21C765B1200AAC8EA /* MapKit.framework */; };
+		74F5F0CA1CA0DAE900CC702F /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 74F5F0C91CA0DAE900CC702F /* LoginViewController.swift */; };
+		74F5F0CC1CA0DC4200CC702F /* Accounts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F5F0CB1CA0DC4200CC702F /* Accounts.framework */; };
+		74F5F0CE1CA0DC5500CC702F /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F5F0CD1CA0DC5500CC702F /* CoreGraphics.framework */; };
+		74F5F0D01CA0DC6700CC702F /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F5F0CF1CA0DC6700CC702F /* libsqlite3.0.tbd */; };
+		74F5F0D21CA0DC7200CC702F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F5F0D11CA0DC7200CC702F /* MobileCoreServices.framework */; };
+		74F5F0D41CA0DC7B00CC702F /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F5F0D31CA0DC7B00CC702F /* Security.framework */; };
+		74F5F0D61CA0DC8400CC702F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F5F0D51CA0DC8400CC702F /* Social.framework */; };
+		74F5F0D81CA0DCAA00CC702F /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F5F0D71CA0DCAA00CC702F /* WebKit.framework */; };
+		74F5F0DA1CA0DCCC00CC702F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F5F0D91CA0DCCC00CC702F /* SystemConfiguration.framework */; };
+		74F5F0E01CA0DF3E00CC702F /* KinveyKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 74F5F0DF1CA0DF3E00CC702F /* KinveyKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +65,17 @@
 		74D4BFD41C765A7B00AAC8EA /* MapPracticeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPracticeUITests.swift; sourceTree = "<group>"; };
 		74D4BFD61C765A7B00AAC8EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		74D4BFE21C765B1200AAC8EA /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		74F5F0C91CA0DAE900CC702F /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		74F5F0CB1CA0DC4200CC702F /* Accounts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accounts.framework; path = System/Library/Frameworks/Accounts.framework; sourceTree = SDKROOT; };
+		74F5F0CD1CA0DC5500CC702F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		74F5F0CF1CA0DC6700CC702F /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		74F5F0D11CA0DC7200CC702F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		74F5F0D31CA0DC7B00CC702F /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		74F5F0D51CA0DC8400CC702F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
+		74F5F0D71CA0DCAA00CC702F /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		74F5F0D91CA0DCCC00CC702F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		74F5F0DB1CA0DD8000CC702F /* MapPractice-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MapPractice-Bridging-Header.h"; sourceTree = "<group>"; };
+		74F5F0DF1CA0DF3E00CC702F /* KinveyKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = KinveyKit.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +83,15 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				74F5F0DA1CA0DCCC00CC702F /* SystemConfiguration.framework in Frameworks */,
+				74F5F0D81CA0DCAA00CC702F /* WebKit.framework in Frameworks */,
+				74F5F0D61CA0DC8400CC702F /* Social.framework in Frameworks */,
+				74F5F0D41CA0DC7B00CC702F /* Security.framework in Frameworks */,
+				74F5F0D21CA0DC7200CC702F /* MobileCoreServices.framework in Frameworks */,
+				74F5F0D01CA0DC6700CC702F /* libsqlite3.0.tbd in Frameworks */,
+				74F5F0E01CA0DF3E00CC702F /* KinveyKit.framework in Frameworks */,
+				74F5F0CE1CA0DC5500CC702F /* CoreGraphics.framework in Frameworks */,
+				74F5F0CC1CA0DC4200CC702F /* Accounts.framework in Frameworks */,
 				749805091C7CF1780032D56A /* CoreLocation.framework in Frameworks */,
 				74D4BFE31C765B1200AAC8EA /* MapKit.framework in Frameworks */,
 			);
@@ -87,8 +117,7 @@
 		74D4BFA81C765A7B00AAC8EA = {
 			isa = PBXGroup;
 			children = (
-				749805081C7CF1780032D56A /* CoreLocation.framework */,
-				74D4BFE21C765B1200AAC8EA /* MapKit.framework */,
+				74F5F0E11CA0DFF700CC702F /* Frameworks */,
 				74D4BFB31C765A7B00AAC8EA /* MapPractice */,
 				74D4BFC81C765A7B00AAC8EA /* MapPracticeTests */,
 				74D4BFD31C765A7B00AAC8EA /* MapPracticeUITests */,
@@ -117,6 +146,8 @@
 				74D4BFBB1C765A7B00AAC8EA /* Assets.xcassets */,
 				74D4BFBD1C765A7B00AAC8EA /* LaunchScreen.storyboard */,
 				74D4BFC01C765A7B00AAC8EA /* Info.plist */,
+				74F5F0C91CA0DAE900CC702F /* LoginViewController.swift */,
+				74F5F0DB1CA0DD8000CC702F /* MapPractice-Bridging-Header.h */,
 			);
 			path = MapPractice;
 			sourceTree = "<group>";
@@ -137,6 +168,24 @@
 				74D4BFD61C765A7B00AAC8EA /* Info.plist */,
 			);
 			path = MapPracticeUITests;
+			sourceTree = "<group>";
+		};
+		74F5F0E11CA0DFF700CC702F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				74F5F0D91CA0DCCC00CC702F /* SystemConfiguration.framework */,
+				74F5F0D71CA0DCAA00CC702F /* WebKit.framework */,
+				74F5F0D51CA0DC8400CC702F /* Social.framework */,
+				74F5F0D31CA0DC7B00CC702F /* Security.framework */,
+				74F5F0D11CA0DC7200CC702F /* MobileCoreServices.framework */,
+				74F5F0CF1CA0DC6700CC702F /* libsqlite3.0.tbd */,
+				74F5F0CD1CA0DC5500CC702F /* CoreGraphics.framework */,
+				74F5F0CB1CA0DC4200CC702F /* Accounts.framework */,
+				749805081C7CF1780032D56A /* CoreLocation.framework */,
+				74D4BFE21C765B1200AAC8EA /* MapKit.framework */,
+				74F5F0DF1CA0DF3E00CC702F /* KinveyKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,6 +330,7 @@
 				74D4BFB71C765A7B00AAC8EA /* ViewController.swift in Sources */,
 				747396811C7F9307009D884C /* DataHolder.swift in Sources */,
 				74514FE31C86691C00540EEC /* InfoPage.swift in Sources */,
+				74F5F0CA1CA0DAE900CC702F /* LoginViewController.swift in Sources */,
 				74D4BFB51C765A7B00AAC8EA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -421,10 +471,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MapPractice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roshanthapaliya.MapPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "MapPractice/MapPractice-Bridging-Header.h";
 			};
 			name = Debug;
 		};
@@ -432,10 +488,16 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = MapPractice/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				"OTHER_LDFLAGS[arch=*]" = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.roshanthapaliya.MapPractice;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				"SWIFT_OBJC_BRIDGING_HEADER[arch=*]" = "MapPractice/MapPractice-Bridging-Header.h";
 			};
 			name = Release;
 		};

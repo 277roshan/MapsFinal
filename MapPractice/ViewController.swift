@@ -10,12 +10,10 @@ import UIKit
 import MapKit
 import CoreLocation
 
-
+// Mark: Variables and Constants
 var searchKey = ""
-//let GOOGLE_API_KEY = "AIzaSyBSQ11p5somUrlvz7qEtHfS2ulA8Le6xPA"
 let GOOGLE_API_KEY = "AIzaSyCztBoPH_Aj2385l_dr5z23e0_XXZp-jgA"
 let delta = 0.02
-
 var latitude = "38.9222"
 var longitude = "-77.0194"
 var center = CLLocationCoordinate2DMake(Double(latitude)!, Double(longitude)!)
@@ -25,6 +23,7 @@ var region = MKCoordinateRegion(center:center, span: MKCoordinateSpan(latitudeDe
 
 class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDelegate, MKMapViewDelegate{
     
+    // Mark: Outlets
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var SearchText: UITextField! // User entered search text
@@ -53,6 +52,18 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         
     }
     
+    // Mark: Segue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "godetail")
+        {
+            let vc = segue.destinationViewController as! DetailViewController
+            vc.cafe_title = (sender as? CustomAnnotation)  
+        }
+    }
+    
+    
+    //Mark: Maps Stuff
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
         let annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: "myspot")
@@ -70,35 +81,16 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         let location = view.annotation as! CustomAnnotation
-        let title = location.title
-        let subtitle = location.subtitle
-        let placeId = location.placeId
-//        let alert = UIAlertController(title: title, message: title! + subtitle!, preferredStyle: .Alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler:nil ))
-//        presentViewController(alert, animated:true, completion:nil)
-      
         performSegueWithIdentifier("godetail", sender: location)
         
     }
-    
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if (segue.identifier == "godetail")
-        {
-            let vc = segue.destinationViewController as! DetailViewController
-            //vc.cafe_titl = (sender as! MKAnnotationView).annotation!
-            vc.cafe_title = (sender as? CustomAnnotation)
-            
-            
-        }
-    }
-    
-    
-    
+
+
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         let locValue:CLLocationCoordinate2D = manager.location!.coordinate
-        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        //print("locations = \(locValue.latitude) \(locValue.longitude)")
         
         latitude = String(locValue.latitude)
         longitude = String(locValue.longitude)
@@ -115,9 +107,6 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
     }
   
     
- 
-    
-    
     func annotate()
     {
         //in this function we set the map location
@@ -131,62 +120,37 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         
         let session = NSURLSession.sharedSession()
         let request = NSMutableURLRequest(URL: NSURL(string: baseURL)!)
-        print(baseURL)
+        //print(baseURL)
         let task = session.dataTaskWithRequest(request){
             (data, response, error)-> Void in
             if error != nil {
                 
-                print (error!.localizedDescription)
+                //print (error!.localizedDescription)
                 return
             }
             //do convert to json
             do{
                 let json = try NSJSONSerialization.JSONObjectWithData(data!, options: .AllowFragments)
-                
-                
-                print(1)
-                if let items = json["results"] as? [[String: AnyObject]]{
+                if let item = json["results"] as? [[String: AnyObject]]{
                     
-                    var all_items:[CustomAnnotation] = [] //array to hold all items to be updated to UI later
-                    print(items)
-                    
-                    for items in items{
-                        //process items here
-                        print (items)
-                        
-                        if let name = items["name"] as? String, let vicinity = items["vicinity"] as? String, let placeID = items["place_id"]{
-                            
+                    var all_items:[CustomAnnotation] = [] //array to hold all items to be updated to UI
+                    for items in item{
+                        if let name = items["name"] as? String, let vicinity = items["vicinity"] as? String, let placeID = items["place_id"] {
+                            //print(items)
                             let coords: [Double] = self.getCoords(items["geometry"] as! Dictionary)
-                            
-        
-                            
-                            //let annotation = MKPointAnnotation()
-                            
-                            
                             let coordinate = CLLocationCoordinate2D(
                                 latitude: coords[0],
                                 longitude: coords[1]
                             )
 
-                            
-//                            annotation.coordinate = CLLocationCoordinate2D(
-//                                latitude: coords[0],
-//                                longitude: coords[1]
-//                            )
-//                            annotation.title = name //adding vicinity
-//                            annotation.subtitle = vicinity
-                            
-                            
                             let a = CustomAnnotation(coordinate: coordinate, title: name, subtitle: vicinity, placeId: placeID as! String)
-                    
+
+                            if let it = items["photos"]{
+                                let img = it.valueForKey("photo_reference")![0] as! String
+                                a.set_photo(img)
+                                
+                            }
                             all_items.append(a)
-                            
-                            
-                            
-                            
-                            
-                            
-                            
                         }
                     }
                     //when finished, update the UI on the main thread
@@ -210,13 +174,10 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         task.resume()
     }
     
-    
-    
-    
     func getCoords(data: [String:AnyObject]) -> [Double]{
         //we get the coordinates using this function
         let c = data["location"] as![String: AnyObject]
-        print (c)
+        //print (c)
         return [c["lat"] as! Double, c["lng"] as! Double]
         
     }
@@ -239,31 +200,9 @@ class ViewController: UIViewController, UITextFieldDelegate, CLLocationManagerDe
         
         searchKey = SearchText.text!
         baseURL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=\(latitude),\(longitude)&radius=500&type=restaurant&name=\(searchKey)&key=\(GOOGLE_API_KEY)"
-
-        
-        
-        
         annotate()
-        
-        
         return true
     }
-    
-   
-    
-    
-    //MARK:- Annotations
-    
-
-
-    
- 
-//
-//
-    
-    
-    
-    
-    
 }
+
 

@@ -9,6 +9,7 @@
 import MapKit
 import UIKit
 
+//Class to hold data about food places
 class CustomAnnotation: NSObject, MKAnnotation{
     
     
@@ -16,19 +17,20 @@ class CustomAnnotation: NSObject, MKAnnotation{
     let subtitle: String?
     let coordinate: CLLocationCoordinate2D
     let placeId: String
-    
-    
+    var photoreference: String
     
     init (coordinate:CLLocationCoordinate2D, title:NSString, subtitle:NSString, placeId:String){
         self.title = title as String
         self.subtitle = subtitle as String
         self.coordinate=coordinate
         self.placeId = placeId
-        
-        
+        self.photoreference = ""
         super.init()
         
-       
-        
     }
+    
+    func set_photo(photo:String){
+        self.photoreference = photo
+    }
+    
 }
